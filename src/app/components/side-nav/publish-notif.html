@@ -1,0 +1,43 @@
+<div class="example-container">
+    <h1>Publish notification</h1>
+
+    <div class="publish-flex-horizontal">
+        <mat-form-field class="publish-input-class" color="accent">
+            <textarea matInput [(ngModel)]="data.serviceURL" placeholder="Service URL"></textarea>
+        </mat-form-field>    
+        <mat-form-field class="publish-input-class" style="margin-left:10px" color="accent">
+            <textarea matInput [(ngModel)]="data.topicName" placeholder="Topic Name"></textarea>
+        </mat-form-field>   
+    </div> 
+
+    <mat-form-field class="publish-input-class" color="accent">
+        <textarea matInput [(ngModel)]="data.title" placeholder="Title"></textarea>
+    </mat-form-field>
+    <mat-form-field class="publish-input-class" color="accent">
+        <textarea class=" publish-message-div" matInput [(ngModel)]="data.message" placeholder="Message"></textarea>
+    </mat-form-field>
+
+    <div class="publish-flex-horizontal"> 
+        <mat-form-field class="publish-input-class" color="accent">
+            <textarea matInput [(ngModel)]="data.tags" placeholder="Tags"></textarea>
+        </mat-form-field>
+        <div style="margin-left:10px; padding-top:16px;">
+            <form>
+                <mat-form-field color="accent" class="publish-input-width">
+                    <mat-select [(ngModel)]="selectedPriority" name="priority">
+                      <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                        {{priority.viewValue}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="publish-button-div" mat-dialog-actions>
+    <div class="publish-button-div2">
+        <button color="accent" mat-button (click)="onCancel()">CANCEL</button>
+        <button class="publish-right-button" color="accent" mat-button [disabled]="publishDisabled" [mat-dialog-close]="data" cdkFocusInitial>SEND</button>
+    </div>
+</div>

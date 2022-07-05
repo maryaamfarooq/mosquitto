@@ -1,0 +1,13 @@
+.nav-bar {
+    padding-top: 10px;
+    background-color: rgb(49, 71, 113)
+    /* background-color: white; */
+}
+
+.img {
+    width: 200px;
+    height: auto;
+    background-color:rgb(255, 255, 255);
+    padding:3px 15px 3px 15px;
+    border-radius: 10px;
+}

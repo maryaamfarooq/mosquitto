@@ -1,0 +1,67 @@
+<div class="height-max">
+
+    <div name="notifications" class="mat-elevation-z2 div-content div1-content">
+        <div class="mat-headline">Notifications</div>
+        <div class="flex-container align">
+            <div>
+                <div class="bold-subheading subheading-spacing">Notification sound</div>
+                <div class="mat-caption">Notifications {{displaySound(selectedSound)}} sound when they arrive</div>
+            </div>
+            <div>
+                <form>
+                    <mat-form-field color="accent" class="input-width">
+                        <mat-select [(ngModel)]="selectedSound" name="sound">
+                          <mat-option *ngFor="let sound of sounds" [value]="sound.value">
+                            {{sound.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </form>
+            </div>
+        </div>
+
+        <div class="flex-container align">
+            <div>
+                <div class="bold-subheading subheading-spacing">Minimum priority</div>
+                <div class="mat-caption">{{displayPriority(selectedPriority)}}</div>
+            </div>
+            <div>
+                <form>
+                    <mat-form-field color="accent" class="input-width">
+                        <mat-select [(ngModel)]="selectedPriority" name="priority">
+                          <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                            {{priority.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </form>
+            </div>
+        </div>
+
+        <div class="flex-container align">
+            <div>
+                <div class="bold-subheading subheading-spacing">Delete notifications</div>
+                <div class="mat-caption">Notifications are {{displayDeleteNotif(selectedDeleteNotif)}}</div>
+            </div>
+            <div>
+                <form>
+                    <mat-form-field color="accent" class="input-width">
+                        <mat-select [(ngModel)]="selectedDeleteNotif" name="priority">
+                          <mat-option *ngFor="let del of deleteNotif" [value]="del.value">
+                            {{del.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div name="manage-users" class="mat-elevation-z2 div-content div2-content">
+        <div class="mat-headline">Manage users</div>
+        <div class="mat-body">Add/remove users for your protected topics here. Please note that username and password are stored in the browser's local storage.</div>
+        <button color="accent" class="add-button" mat-flat-button (click)="addUser()">ADD USER</button>
+    </div>
+
+</div>

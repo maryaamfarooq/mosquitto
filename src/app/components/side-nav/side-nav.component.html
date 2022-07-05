@@ -1,0 +1,32 @@
+  <mat-sidenav-container class="vertical">
+      <mat-sidenav opened="true" disableClose="true" [fixedInViewport]="true" #sidenav="matSidenav" class="mat-elevation-z8 vertical">
+        <div class="flex-vertical">
+            <div (click)="allNotif()" mat-menu-item matRipple class="flex-horizontal">
+                <mat-icon class="icon"> chat_bubble</mat-icon>
+                <div class="menu-bar ">All notifications</div>
+            </div>
+
+            <div (click)="publishNotif()" mat-menu-item matRipple class="flex-horizontal">
+                <mat-icon class="icon">add_circle_outline</mat-icon>
+                <div class="menu-bar">Publish notification</div>
+            </div>
+
+            <div (click)="subscribeTopic()" mat-menu-item matRipple class="flex-horizontal">
+                <mat-icon class="icon">send</mat-icon>
+                <div class="menu-bar">Subscribe to topic</div>
+            </div>
+
+            <div (click)="settings()" mat-menu-item matRipple class="flex-horizontal">
+                <mat-icon class="icon">settings</mat-icon>
+                <div class="menu-bar">Settings</div>
+            </div>
+
+            <!-- <mat-icon class="icon"> chat_bubble_outline</mat-icon> -->
+            <!-- <mat-icon class="icon">add</mat-icon> -->
+            <!-- <mat-icon class="icon">add_box</mat-icon> -->
+            <!-- <mat-icon class="icon">add_circle</mat-icon> -->
+
+        </div>
+
+      </mat-sidenav>
+  </mat-sidenav-container>

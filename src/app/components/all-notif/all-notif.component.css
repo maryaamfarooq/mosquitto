@@ -1,0 +1,55 @@
+
+.height-max {
+    height: 100%;
+    margin:0;
+    padding: 0;
+}
+
+.main-div {
+    margin-left: 70px;
+    padding: 30px;
+    margin-top: -50px;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-div {
+    margin-top: -80px;
+    margin-left: 150px;
+    /* background-color: red; */
+}
+
+.no-notif {
+    font-size: 30px;
+    margin-top:30px;
+    color: rgb(77, 77, 77);
+    font-weight: lighter;
+    letter-spacing:0.1px
+    /* width: 100px;
+    height: 100px; */
+}
+
+.notif-class {
+    width: 900px;
+    margin-right: 20px;
+    height: auto;
+    padding: 25px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.date-div {
+    margin-bottom: 4px;
+    font-weight: lighter;
+    color: rgb(110, 110, 110);
+    font-style: Roboto;
+}
+
+.message-div {
+    font-style: Roboto;
+    font-size: 16px;
+}

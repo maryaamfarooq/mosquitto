@@ -1,0 +1,18 @@
+<div class="example-container">
+    <h1>Add user</h1>
+    <mat-form-field color="accent">
+        <textarea [(ngModel)]="data.serviceURL" matInput placeholder="Service URL"></textarea>
+    </mat-form-field>
+    
+    <mat-form-field color="accent">
+        <textarea [(ngModel)]="data.username" matInput placeholder="Username"></textarea>
+    </mat-form-field>
+    
+    <mat-form-field color="accent">
+        <textarea [(ngModel)]="data.password" matInput placeholder="Password"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button color="accent" mat-button (click)="onCancel()">CANCEL</button>
+    <button color="accent" mat-button [disabled]="addDisabled" [mat-dialog-close]="data" cdkFocusInitial>ADD</button>
+</div>

@@ -1,0 +1,22 @@
+<div class="height-max">
+
+    <div *ngIf="!noNotif" class="main-div">
+        <div *ngFor="let notif of notifications">
+            <div class="mat-elevation-z2 notif-class">
+                <div class="date-div">
+                    {{notif.date}}, {{notif.time}}
+                </div>
+                <div class="message-div">
+                    {{notif.message}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="align-center">
+        <div *ngIf="noNotif" class="mat-subheading-1 no-notif">
+            No new notifications
+        </div>
+    </div> -->
+
+</div>

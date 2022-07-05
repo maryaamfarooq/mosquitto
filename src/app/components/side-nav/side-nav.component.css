@@ -1,0 +1,87 @@
+
+@import '~material-design-icons/iconfont/material-icons.css';
+
+.height-max {
+    height: 100%
+}
+
+.vertical {
+    background-color: rgb(49, 71, 113);
+    width:inherit;
+    margin-top:64px;
+}
+
+.flex-vertical {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.icon {
+    color:white;
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 20px;
+}
+
+.flex-horizontal {
+    padding: 15px 0 0 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu-bar {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 200;
+    letter-spacing: 0.3px;
+    color: white;
+    margin-left: 12px;
+    padding-top: 2.8px;
+}
+
+.input-class {
+    width: 525px
+}
+
+.button-div {
+    /* background-color: red; */
+    margin-top: 30px;
+    margin-left: 330px;
+}
+
+.right-button {
+    margin-left: 0px;
+}
+
+.text-div {
+    margin-bottom: 10px;
+}
+
+.publish-input-class {
+    width: 595px
+}
+
+.publish-message-div {
+    height: 100px
+}
+
+/* .publish-button-div {
+    background-color: red;
+    width:100%;
+    float: right;
+    display: flex;
+    float: left;
+    margin-top: 30px;
+    margin-left: 330px;
+}
+
+.publish-button-div2 {
+    float: right;
+} */
+
+.publish-flex-horizontal {
+    display: flex;
+    flex-direction: row;
+}
