@@ -9,7 +9,7 @@ import { SettingsComponent, AddUserDialog } from './components/settings/settings
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllNotifComponent } from './components/all-notif/all-notif.component';
 
 @NgModule({
@@ -29,6 +29,7 @@ import { AllNotifComponent } from './components/all-notif/all-notif.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

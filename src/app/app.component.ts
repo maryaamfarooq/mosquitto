@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Globals } from './globals'
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +10,10 @@ import { Globals } from './globals'
 export class AppComponent {
   title = 'mosquitto';
 
-  ngOnInit() {
-    
-  }
+  constructor(private router: Router) {}
 
-  settings = Globals.displaySettings;
-  allNotif = Globals.displayAllNotif;
+  ngOnInit() {
+    this.router.navigateByUrl('components/all-notif');
+  }
 
 }

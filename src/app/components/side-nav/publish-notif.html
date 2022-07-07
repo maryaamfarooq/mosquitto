@@ -1,9 +1,9 @@
-<div class="example-container">
+<form class="example-container" #publishNotifForm="ngForm" [formGroup]="publishNotifGroup">
     <h1>Publish notification</h1>
 
     <div class="publish-flex-horizontal">
         <mat-form-field class="publish-input-class" color="accent">
-            <textarea matInput [(ngModel)]="data.serviceURL" placeholder="Service URL"></textarea>
+            <textarea formControlName="serviceControl" required matInput [(ngModel)]="data.serviceURL" placeholder="Service URL"></textarea>
         </mat-form-field>    
         <mat-form-field class="publish-input-class" style="margin-left:10px" color="accent">
             <textarea matInput [(ngModel)]="data.topicName" placeholder="Topic Name"></textarea>
@@ -14,7 +14,7 @@
         <textarea matInput [(ngModel)]="data.title" placeholder="Title"></textarea>
     </mat-form-field>
     <mat-form-field class="publish-input-class" color="accent">
-        <textarea class=" publish-message-div" matInput [(ngModel)]="data.message" placeholder="Message"></textarea>
+        <textarea class="publish-message-div" matInput [(ngModel)]="data.message" placeholder="Message"></textarea>
     </mat-form-field>
 
     <div class="publish-flex-horizontal"> 
@@ -33,11 +33,11 @@
             </form>
         </div>
     </div>
-</div>
+</form>
 
 <div class="publish-button-div" mat-dialog-actions>
     <div class="publish-button-div2">
         <button color="accent" mat-button (click)="onCancel()">CANCEL</button>
-        <button class="publish-right-button" color="accent" mat-button [disabled]="publishDisabled" [mat-dialog-close]="data" cdkFocusInitial>SEND</button>
+        <button [disabled]="!publishNotifForm.valid" class="publish-right-button" color="accent" mat-button [mat-dialog-close]="data" cdkFocusInitial>SEND</button>
     </div>
 </div>

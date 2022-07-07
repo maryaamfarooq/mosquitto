@@ -1,11 +1,11 @@
-<div class="example-container">
+<form class="example-container" #subscribeTopicForm="ngForm" [formGroup]="subscribeTopicGroup">
         <h1>Subscribe to topic</h1>
         <div class="mat-body text-div">Topics may not be password-protected, so choose a name that's not easy to guess. Once subscribed, you can PUT/POST notifications.</div>
         <mat-form-field class="input-class" color="accent">
-            <textarea matInput [(ngModel)]="data.topicName" placeholder="Topic Name"></textarea>
+            <textarea formControlName="topicControl" required  matInput [(ngModel)]="data.topicName" placeholder="Topic Name"></textarea>
         </mat-form-field>
-    </div>
+</form>
 <div class="button-div" mat-dialog-actions>
     <button color="accent" mat-button (click)="onCancel()">CANCEL</button>
-    <button class="right-button" color="accent" mat-button [disabled]="subscribeDisabled" [mat-dialog-close]="data" cdkFocusInitial>SUBSCRIBE</button>
+    <button [disabled]="!subscribeTopicForm.valid" class="right-button" color="accent" mat-button [disabled]="subscribeDisabled" [mat-dialog-close]="data" cdkFocusInitial>SUBSCRIBE</button>
 </div>

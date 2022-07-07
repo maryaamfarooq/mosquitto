@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 interface Option {
@@ -20,7 +21,6 @@ export interface AddUserDialogData {
 })
 
 export class SettingsComponent implements OnInit {
-
 
   sounds: Option[] = [
     {value: 'no-sound-0', viewValue: 'No Sound'},
@@ -105,9 +105,9 @@ export class SettingsComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // this.serviceURL = result.serviceURL;
-      // this.username = result.username;
-      // this.password = result.password;
+      this.serviceURL = result.serviceURL;
+      this.username = result.username;
+      this.password = result.password;
       console.log(result);
     });
   }
@@ -122,15 +122,21 @@ export class SettingsComponent implements OnInit {
 
 export class AddUserDialog {
 
-  addDisabled = true;
-
   constructor(
     public dialogRef: MatDialogRef<AddUserDialog>,
     @Inject(MAT_DIALOG_DATA) public data: AddUserDialogData,
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
   onCancel(): void {
     this.dialogRef.close(this.data);
   }
+
+  addUserGroup = new FormGroup({
+    serviceControl: new FormControl('', [Validators.required]),
+    usernameControl: new FormControl('', [Validators.required]),
+    passControl: new FormControl('', [Validators.required]),
+  })
 
 }

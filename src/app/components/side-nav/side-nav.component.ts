@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Inject } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Globals } from '../../globals'
 
 interface Option {
   value: string;
@@ -69,8 +69,7 @@ export class SideNavComponent implements OnInit {
   }
 
   allNotif() : void {
-    Globals.displayAllNotif = true;
-    Globals.displaySettings = false;
+    this.router.navigateByUrl('components/all-notif');
   }
 
   subscribeTopic(): void {
@@ -87,10 +86,7 @@ export class SideNavComponent implements OnInit {
   }
 
   settings() : void {
-    Globals.displayAllNotif = false;
-    Globals.displaySettings = true;
-    console.log(Globals.displaySettings);
-    this.router.navigateByUrl(``);
+    this.router.navigateByUrl('components/settings');
   }
 
 }
@@ -108,11 +104,17 @@ export class SubscribeTopicDialog {
   constructor(
     public dialogRef: MatDialogRef<SubscribeTopicDialog>,
     @Inject(MAT_DIALOG_DATA) public data: SubscribeTopicDialogData,
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
   onCancel(): void {
     this.dialogRef.close();
   }
+
+  subscribeTopicGroup = new FormGroup({
+    topicControl: new FormControl('', [Validators.required])
+  })
 
 }
 
@@ -129,7 +131,9 @@ export class PublishNotifDialog {
   constructor(
     public dialogRef: MatDialogRef<PublishNotifDialog>,
     @Inject(MAT_DIALOG_DATA) public data: PublishNotifDialogData,
-  ) {}
+  ) {
+    dialogRef.disableClose = true;
+  }
 
   priorities: Option[] = [
     {value: 'max-priority-0', viewValue: 'Max priority'},
@@ -144,5 +148,9 @@ export class PublishNotifDialog {
   onCancel(): void {
     this.dialogRef.close();
   }
+
+  publishNotifGroup = new FormGroup({
+    serviceControl: new FormControl('', [Validators.required])
+  })
 
 }

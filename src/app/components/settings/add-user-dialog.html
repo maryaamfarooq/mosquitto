@@ -1,18 +1,20 @@
-<div class="example-container">
+<div>
     <h1>Add user</h1>
-    <mat-form-field color="accent">
-        <textarea [(ngModel)]="data.serviceURL" matInput placeholder="Service URL"></textarea>
-    </mat-form-field>
-    
-    <mat-form-field color="accent">
-        <textarea [(ngModel)]="data.username" matInput placeholder="Username"></textarea>
-    </mat-form-field>
-    
-    <mat-form-field color="accent">
-        <textarea [(ngModel)]="data.password" matInput placeholder="Password"></textarea>
-    </mat-form-field>
+    <form class="example-container" #addUserForm="ngForm" [formGroup]="addUserGroup">
+        <mat-form-field color="accent">
+            <textarea formControlName="serviceControl" required [(ngModel)]="data.serviceURL" matInput placeholder="Service URL"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field color="accent">
+            <textarea formControlName="usernameControl" required [(ngModel)]="data.username" matInput placeholder="Username"></textarea>
+        </mat-form-field>
+        
+        <mat-form-field color="accent">
+            <textarea formControlName="passControl" required [(ngModel)]="data.password" matInput placeholder="Password"></textarea>
+        </mat-form-field>
+    </form>
 </div>
 <div mat-dialog-actions>
     <button color="accent" mat-button (click)="onCancel()">CANCEL</button>
-    <button color="accent" mat-button [disabled]="addDisabled" [mat-dialog-close]="data" cdkFocusInitial>ADD</button>
+    <button [disabled]="!addUserForm.valid" color="accent" mat-button [mat-dialog-close]="data" cdkFocusInitial>ADD</button>
 </div>

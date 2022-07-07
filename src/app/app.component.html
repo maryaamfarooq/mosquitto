@@ -2,7 +2,10 @@
   <app-navbar class="nav-bar"></app-navbar>
   <div class="main-div">
     <app-side-nav class="align-side-nav"></app-side-nav>
-    <app-settings *ngIf="settings" class="align-main"></app-settings>
-    <app-all-notif *ngIf="allNotif" class="align-main"></app-all-notif>
+    <!-- <app-settings *ngIf="settings" class="align-main"></app-settings>
+    <app-all-notif *ngIf="allNotif" class="align-main"></app-all-notif> -->
+    <div class="align-main">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </html>
