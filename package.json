@@ -27,6 +27,7 @@
     "@mui/styled-engine-sc": "^5.8.0",
     "@mui/system": "^5.8.6",
     "material-design-icons": "^3.0.1",
+    "ngx-mqtt": "^9.0.5",
     "rxjs": "~7.5.0",
     "styled-components": "^5.3.5",
     "tslib": "^2.3.0",

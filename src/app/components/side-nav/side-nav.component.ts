@@ -4,6 +4,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
+// import { EventDataModel } from 'app/models/event.model';
+import { Subscription } from 'rxjs';
+import { EventMqttService } from '../../services/event.mqtt.service';
+import { IMqttMessage } from "ngx-mqtt";
+
 interface Option {
   value: string;
   viewValue: string;
@@ -32,6 +37,10 @@ export class SideNavComponent implements OnInit {
 
   topicName = "";
 
+  events: any[] = [];
+  // private deviceId: string = "";
+  subscription: Subscription = new Subscription;
+
   pubNotif: PublishNotifDialogData = {
     serviceURL: "",
     topicName: "",
@@ -41,7 +50,9 @@ export class SideNavComponent implements OnInit {
     priority: "",
   }
 
-  constructor(public dialog: MatDialog, private router: Router) { }
+  constructor(public dialog: MatDialog, private router: Router, private readonly eventMqtt: EventMqttService) { 
+
+  }
 
   ngOnInit(): void {
   }
@@ -81,6 +92,14 @@ export class SideNavComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.topicName = result.topicName;
+
+      // subscribe to topic
+      this.subscription = this.eventMqtt.topic(this.topicName)
+            .subscribe((data: IMqttMessage) => {
+              let item = JSON.parse(data.payload.toString());
+              this.events.push(item);
+          });
+
       console.log(this.topicName);
     });
   }

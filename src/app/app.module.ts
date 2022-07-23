@@ -12,6 +12,33 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AllNotifComponent } from './components/all-notif/all-notif.component';
 
+import { IMqttServiceOptions, MqttModule } from "ngx-mqtt";
+import { EventMqttService } from './services/event.mqtt.service';
+
+// export const env = {
+//   production: true,
+// 	hmr: false,
+// 	http: {
+// 		apiUrl: '<https://api.myweb.com>',
+// 	},
+// 	mqtt: {
+// 		server: 'mqtt.myweb.com',
+// 		protocol: "wss",
+// 		port: 8080
+// 	}
+// };
+
+const port = 8883; 
+const protocol = "wss";
+const server = 'test.mosquitto.org';
+
+const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
+  hostname: server,
+  port: port,
+  protocol: protocol/*(protocol === "wss") ? "wss" : "ws"*/,
+  path: '',
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +56,12 @@ import { AllNotifComponent } from './components/all-notif/all-notif.component';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MqttModule.forRoot(MQTT_SERVICE_OPTIONS),
   ],
-  providers: [],
+  providers: [
+    EventMqttService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
