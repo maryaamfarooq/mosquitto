@@ -39,7 +39,7 @@ export class AllNotifComponent implements OnInit {
     }
   ];
 
-  noNotif = false;
+  noNotif = true;
 
   ngOnInit(): void {
 

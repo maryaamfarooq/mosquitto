@@ -6,6 +6,13 @@
                 <div class="menu-bar ">All notifications</div>
             </div>
 
+            <div *ngFor="let topic of allTopics" (click)="selectTopic(topic)" mat-menu-item matRipple class="flex-horizontal">
+                <mat-icon class="icon">chat_bubble_outline</mat-icon>
+                <div class="menu-bar">{{topic}}</div>
+            </div>
+
+            <mat-divider class="divider"></mat-divider>
+
             <div (click)="publishNotif()" mat-menu-item matRipple class="flex-horizontal">
                 <mat-icon class="icon">send</mat-icon>
                 <div class="menu-bar">Publish notification</div>
@@ -21,10 +28,9 @@
                 <div class="menu-bar">Settings</div>
             </div>
 
+            <ng-container #container></ng-container>
+
             <!-- <mat-icon class="icon"> chat_bubble_outline</mat-icon> -->
-            <!-- <mat-icon class="icon">add</mat-icon> -->
-            <!-- <mat-icon class="icon">add_box</mat-icon> -->
-            <!-- <mat-icon class="icon">add_circle</mat-icon> -->
 
         </div>
 

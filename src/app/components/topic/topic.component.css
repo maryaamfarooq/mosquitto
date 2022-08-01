@@ -1,0 +1,67 @@
+.message-bar {
+    /* position: sticky; */
+    background-color: rgb(241, 241, 241);
+    /* height: 50px; */
+    width: 72rem;
+    margin-left: 68px;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    bottom: 0px;
+}
+
+.message-field {
+    width: 96%;
+    margin: 20px 25px;
+    font-size: 16px;
+}
+
+.send-icon {
+    margin: 30px 20px 0 0;
+    border-radius: 20px;
+    padding: 9px;
+    transition: 0.15s;
+}
+
+.send-icon:hover {
+    background-color: rgb(231, 231, 231);
+
+}
+
+.main-div {
+    margin-top: -80px;
+    margin-left: 150px;
+    margin-bottom: 40px;
+    /* background-color: red; */
+}
+
+.no-notif {
+    font-size: 30px;
+    margin-top:30px;
+    color: rgb(77, 77, 77);
+    font-weight: lighter;
+    letter-spacing:0.1px
+    /* width: 100px;
+    height: 100px; */
+}
+
+.notif-class {
+    width: 900px;
+    margin-right: 20px;
+    height: auto;
+    padding: 25px;
+    margin-top: 20px;
+    background-color: white;
+}
+
+.date-div {
+    margin-bottom: 4px;
+    font-weight: lighter;
+    color: rgb(110, 110, 110);
+    font-style: Roboto;
+}
+
+.message-div {
+    font-style: Roboto;
+    font-size: 16px;
+}

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, ViewContainerRef } from '@angular/core';
 import { Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -34,6 +34,7 @@ export interface PublishNotifDialogData {
 })
 export class SideNavComponent implements OnInit {
 
+  allTopics: string[] = ["test", "test2", "test3"];
 
   topicName = "";
 
@@ -50,11 +51,15 @@ export class SideNavComponent implements OnInit {
     priority: "",
   }
 
+  @ViewChild('container', { read: ViewContainerRef, static: true })
+  container!: ViewContainerRef;
+
   constructor(public dialog: MatDialog, private router: Router, private readonly eventMqtt: EventMqttService) { 
 
   }
 
   ngOnInit(): void {
+
   }
 
   publishNotif() : void {
@@ -94,18 +99,25 @@ export class SideNavComponent implements OnInit {
       this.topicName = result.topicName;
 
       // subscribe to topic
-      this.subscription = this.eventMqtt.topic(this.topicName)
-            .subscribe((data: IMqttMessage) => {
-              let item = JSON.parse(data.payload.toString());
-              this.events.push(item);
-          });
+      // this.subscription = this.eventMqtt.topic(this.topicName)
+      //       .subscribe((data: IMqttMessage) => {
+      //         let item = JSON.parse(data.payload.toString());
+      //         this.events.push(item);
+      //     });
 
-      console.log(this.topicName);
+
+
+      // console.log(this.topicName);
     });
   }
 
   settings() : void {
     this.router.navigateByUrl('components/settings');
+  }
+
+  selectTopic(topic: string) {
+    console.log(topic);
+    this.router.navigateByUrl('components/topic/' + topic);
   }
 
 }

@@ -14,6 +14,7 @@ import { AllNotifComponent } from './components/all-notif/all-notif.component';
 
 import { IMqttServiceOptions, MqttModule } from "ngx-mqtt";
 import { EventMqttService } from './services/event.mqtt.service';
+import { TopicComponent } from './components/topic/topic.component';
 
 // export const env = {
 //   production: true,
@@ -48,7 +49,8 @@ const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
     AddUserDialog,
     SubscribeTopicDialog,
     PublishNotifDialog,
-    AllNotifComponent
+    AllNotifComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,
